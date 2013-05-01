@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>Pyscape</h1>
-        <h2>A script to grab data from the Mozscape API. Requires Python &amp;ge; 3.2.</h2>
+        <h2>A script to grab data from the Mozscape API. Requires Python &ge; 3.2.</h2>
         <a href="https://github.com/benjaminestes/Pyscape" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -121,7 +121,16 @@ pyscape.py anchor www.example.com anchor.csv -d -f
 line to extend the amount of information available. Or, if we're 
 just trying to pull a lot of reports it will be more convenient to 
 use a command line tool. Use the <code>ose-style</code> command to generate
-reports that match the formatting you would get from OSE.</p>
+reports that match the formatting you would get from OSE.</p> Use the <code>-d</code>,
+<code>-s</code>, and <code>-p</code> flags to determine whether to provide
+intel on a domain, subdomain, or page level. Use <code>-o</code> or <code>-m</code>
+to return one or many links per linking domain, respectively.
+
+<pre><code>
+pyscape.py ose-style www.example.com report.csv -p -m
+# export a CSV matching OSE's format with all links
+# pointed at the specified page
+</code></pre>
 
 <h2>Thanks</h2>
 
