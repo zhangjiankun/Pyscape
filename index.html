@@ -140,11 +140,11 @@ impossible without <a href="http://jsoneditoronline.com">http://jsoneditoronline
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/benjaminestes/Pyscape/zipball/master" class="button" id="zip-download">
+          <a href="https://github.com/benjaminestes/Pyscape/zipball/master" class="button" id="zip">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/benjaminestes/Pyscape/tarball/master" class="button" id="tar-download">
+          <a href="https://github.com/benjaminestes/Pyscape/tarball/master" class="button" id="tar">
             <small>Download</small>
             .tar.gz file
           </a>
@@ -173,10 +173,10 @@ ga('send', 'pageview');
 <script>
     $(document).ready(function(){
 
-        $('#zip-download').on('click', function() {
+        $('#zip').on('click', function() {
          ga('send', 'event', 'package', 'download', 'zip');
         });
-      $('#tar-download').on('click', function() {
+      $('#tar').on('click', function() {
         ga('send', 'event', 'package', 'download', 'tar');
         });
 
