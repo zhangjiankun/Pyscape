@@ -11,14 +11,7 @@
     
     <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     
-    <script>
-      $('#zip-download').on('click', function() {
-  ga('send', 'event', 'package', 'download', 'zip');
-});
-      $('#tar-download').on('click', function() {
-  ga('send', 'event', 'package', 'download', 'tar');
-});
-    </script>
+    
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -176,6 +169,20 @@ ga('create', 'UA-40504010-1');
 ga('send', 'pageview');
 
 </script>
+
+<script>
+    $(document).ready(function(){
+
+        $('#zip-download').on('click', function() {
+         ga('send', 'event', 'package', 'download', 'zip');
+        });
+      $('#tar-download').on('click', function() {
+        ga('send', 'event', 'package', 'download', 'tar');
+        });
+
+});
+
+    </script>
 
   </body>
 </html>
