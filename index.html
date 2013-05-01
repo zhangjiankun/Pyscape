@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>Pyscape</h1>
-        <h2>A script to grab data from the Mozscape API. Uses Python 3.</h2>
+        <h2>A script to grab data from the Mozscape API. Requires Python &amp;ge; 3.2.</h2>
         <a href="https://github.com/benjaminestes/Pyscape" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -28,7 +28,15 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h2>Getting started</h2>
+          <h2>Disclaimer</h2>
+
+<p><em>I am not representing SEOmoz through my development of this tool; it
+is completely independent. Neither SEOmoz nor me should be held accountable
+if this doesn't work as expected.</em></p>
+
+<p>That said, I hope you find this useful!</p>
+
+<h2>Getting started</h2>
 
 <p>To use Pyscape you will need:</p>
 
@@ -43,19 +51,25 @@ as the script. The structure of this file should be:</p>
 
 <pre><code>{
     "access-id": "your-id-here",
-    "secret-key": "your-key-here"
+    "secret-key": "your-key-here",
+    "level": "access-level"
 }
 </code></pre>
 
+<p>...where <code>access-level</code> is one of <code>free</code>, <code>pro</code>, or <code>full</code> 
+depending on the <a href="http://apiwiki.seomoz.org/rate-limiting">level of rate 
+limiting</a> you need.</p>
+
 <h2>Usage</h2>
 
-<pre><code>usage: pyscape [-h] [-d | -s | -p] [-o | -m | -f | -t] [-j | -c]
-               {metrics,bulk-metrics,anchor,top,links} source dest
+<pre><code>usage: pyscape.py [-h] [-d | -s | -p] [-o | -m | -f | -t] [-j | -c]
+                  {metrics,bulk-metrics,anchor,top,links,ose-style} source
+                  dest
 
 Interface with the Mozscape API to provide link metrics
 
 positional arguments:
-  {metrics,bulk-metrics,anchor,top,links}
+  {metrics,bulk-metrics,anchor,top,links,ose-style}
                         select operating mode
   source                specify a URL or text file as appropriate
   dest                  specify an output file
@@ -76,9 +90,28 @@ optional arguments:
 
 <h3>Examples</h3>
 
-<div class="highlight"><pre>./pyscape links www.example.com links.csv -d -m
-<span class="c"># export a CSV with all available links to example.com</span>
-</pre></div>
+<p>Notes:</p>
+
+<ol>
+<li>URLs must not be preceded by http:// or https://. Currently there is no built in filtering for this.</li>
+<li>On Windows you'll probably have to prepend "python" or "python3" to all of the following calls.</li>
+</ol><pre><code>pyscape.py links www.example.com links.csv -d -m
+# export a CSV with all available links to example.com
+
+pyscape.py ose-style www.example.com report.csv -d -o
+# export a CSV matching OSE's format with all domains
+# linking to the target domain
+
+pyscape.py bulk-metrics urls.txt output.csv -p
+# export page level metrics for a list of urls
+
+pyscape.py bulk-metrics urls.txt output.csv -d
+# export domain level metrics for a list of urls
+
+pyscape.py anchor www.example.com anchor.csv -d -f
+# export CSV with anchor text phrases pointed at all
+# pages on www.example.com
+</code></pre>
 
 <h2>OSE-style reports</h2>
 
@@ -87,7 +120,8 @@ optional arguments:
 10,000 lines it provides are insufficient, we can use the command 
 line to extend the amount of information available. Or, if we're 
 just trying to pull a lot of reports it will be more convenient to 
-use a command line tool.</p>
+use a command line tool. Use the <code>ose-style</code> command to generate
+reports that match the formatting you would get from OSE.</p>
 
 <h2>Thanks</h2>
 
