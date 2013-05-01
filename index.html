@@ -8,8 +8,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    
-    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
         
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -139,7 +137,7 @@ impossible without <a href="http://jsoneditoronline.com">http://jsoneditoronline
 
         <aside id="sidebar">
           <div id="zip">
-          <a href="http://projects.listlesstides.com/Pyscape/packages/Pyscape-v0.3.zip" class="button">
+          <a onclick="var that=this;ga('send', 'event', 'package', 'download', 'zip');setTimeout(function(){location.href=that.href;},400);return false;" href="http://projects.listlesstides.com/Pyscape/packages/Pyscape-v0.3.zip" class="button">
             <small>Download</small>
             .zip file
           </a>
@@ -165,18 +163,6 @@ ga('create', 'UA-40504010-1');
 ga('send', 'pageview');
 
 </script>
-
-<script type="text/javascript">
-
-    $(document).ready(function(){
-
-        $('#zip').on('click', function() {
-         ga('send', 'event', 'package', 'download', 'zip');
-        });
-
-});
-
-    </script>
 
   </body>
 </html>
