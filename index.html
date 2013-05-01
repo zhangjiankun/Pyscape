@@ -34,7 +34,7 @@
 is completely independent. Neither SEOmoz nor me should be held accountable
 if this doesn't work as expected.</i> </p>
 
-<p>That said, I hope you find this useful!</p>
+<p>That said, I hope you find it useful!</p>
 
 <h2>Use Pyscape if...</h2>
 <ol>
@@ -48,8 +48,6 @@ Pyscape lets you define which type of API call you want to make. Based on that, 
 the appropriate fields to request from Mozscape. It provides this data in CSVs with <i>human readable</i> headers
 instead of the concise labels that Mozscape uses to identify information fields internally.
 </p>
-
-<p>That said, I hope you find it useful!</p>
 
 <h2>Getting started</h2>
 
@@ -103,14 +101,14 @@ optional arguments:
   -c, --csv             write data in CSV format; default
 </code></pre>
 
+<h3><code>source</code></h3>
+
+Note that the <code>source</code> field is a URL for every command <i>except</i> <code>bulk-metrics</code>.
+For <code>bulk-metrics</code>, <code>source</code> is a text file with one URL per line.
+
 <h3>Examples</h3>
 
-<p>Notes:</p>
-
-<ol>
-<li>URLs must not be preceded by <code>http://</code> or <code>https://</code>. Currently there is no built in filtering for this.</li>
-<li>On Windows you'll probably have to prepend "python" or "python3" to all of the following calls.</li>
-</ol><pre><code>pyscape.py links www.example.com links.csv -d -m
+<pre><code>pyscape.py links www.example.com links.csv -d -m
 # export a CSV with all available links to example.com
 
 pyscape.py ose-style www.example.com report.csv -d -o
