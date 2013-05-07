@@ -369,6 +369,11 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
+.excel-shot {
+	margin-bottom: 20px;
+	margin-top: 20px
+}
+
 /* #Media Queries
 ================================================== */
 
